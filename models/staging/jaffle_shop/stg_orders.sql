@@ -4,6 +4,6 @@ select
     order_date,
     status
 
-from raw.jaffle_shop.orders
+from {{source('jaffle_shop', 'orders')}}
 
 -- returned, completed, shipped, placed and return_pending
