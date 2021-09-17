@@ -27,3 +27,15 @@ sources:
                 - unique
                 - not_null
 
+        - name : payments
+          description: Raw orders Payments
+          loaded_at_fiels: _etl_load_at
+          freshness: 
+            warn_after: {count: 1, period: hour}
+            error_after: {count: 2, period: hour}
+          columns:
+            - name: id
+              description: PK for Payments
+              tests:
+                - unique
+                - not_null

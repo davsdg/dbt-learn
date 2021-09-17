@@ -5,4 +5,4 @@ select
     status,
     round(amount/100, 2) as amount,   -- Cents to $ (1$ --> 100 cent) --
     created as created_at
-from raw.stripe.payment
+from {{source('stripe', 'payment')}}
