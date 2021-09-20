@@ -3,6 +3,7 @@ select
     orderid as order_id,
     paymentmethod as payment_method,
     status,
-    round(amount/100, 2) as amount,   -- Cents to $ (1$ --> 100 cent) --
+    {{ cents_to_dollars('amount') }} as amount,   -- Cents to $ (1$ --> 100 cent) --
     created as created_at
 from {{source('stripe', 'payment')}}
+ 
